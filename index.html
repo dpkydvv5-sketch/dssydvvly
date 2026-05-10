@@ -1,348 +1,330 @@
-
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Big Sister 💖</title>
 
-#flowers,
-#butterflies,
-#stars{
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-pointer-events:none;
-overflow:hidden;
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
 }
 
-.flower{
-position:absolute;
-animation:float 8s ease-in-out infinite;
+body{
+    overflow:hidden;
+    background:#ffb6d9;
 }
 
-.butterfly{
-position:absolute;
-animation:fly linear infinite;
+/* SLIDES */
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100vh;
+    top:0;
+    left:100%;
+    background:#ffb6d9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    transition:0.8s;
+    overflow:hidden;
 }
 
-.star{
-position:absolute;
-width:3px;
-height:3px;
-background:white;
-border-radius:50%;
-animation:twinkle 3s infinite;
+.slide.active{
+    left:0;
 }
 
-.finalText{
-font-size:clamp(2.3rem,9vw,4.5rem);
-font-weight:700;
-color:#ff2f8d;
-animation:glow 2s infinite alternate;
-margin-bottom:25px;
+.content{
+    position:relative;
+    z-index:10;
+    width:100%;
+    max-width:500px;
 }
 
-@keyframes float{
-0%,100%{transform:translateY(0px) rotate(0deg);}
-50%{transform:translateY(-25px) rotate(10deg);}
+/* TEXT */
+
+h1{
+    color:red;
+    font-size:2rem;
+    margin-bottom:20px;
+    text-shadow:2px 2px 8px white;
 }
 
-@keyframes fly{
-0%{transform:translateX(-10vw) translateY(0px);}
-50%{transform:translateX(50vw) translateY(-50px);}
-100%{transform:translateX(110vw) translateY(20px);}
+p{
+    color:red;
+    font-size:1.1rem;
+    line-height:1.8;
+    font-weight:bold;
+    text-shadow:1px 1px 5px white;
 }
 
-@keyframes twinkle{
-0%,100%{opacity:0.2;}
-50%{opacity:1;}
+/* BUTTON */
+
+button{
+    margin-top:30px;
+    padding:14px 28px;
+    border:none;
+    border-radius:40px;
+    background:red;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    font-weight:bold;
+    box-shadow:0 0 15px rgba(255,0,0,0.4);
 }
 
-@keyframes glow{
-from{text-shadow:0 0 10px white;}
-to{text-shadow:0 0 35px #ff3f95;}
+button:hover{
+    transform:scale(1.05);
 }
 
-.musicBtn{
-margin-top:20px;
+/* ANIMATIONS */
+
+.animation{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    z-index:1;
+}
+
+.item{
+    position:absolute;
+    bottom:-50px;
+    animation:floatUp linear infinite;
+    opacity:0.9;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:1;
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:600px){
+
+    h1{
+        font-size:1.6rem;
+    }
+
+    p{
+        font-size:1rem;
+    }
+
+    button{
+        font-size:0.9rem;
+        padding:12px 22px;
+    }
+
 }
 
 </style>
 </head>
+
 <body>
 
-<div id="flowers"></div>
-<div id="butterflies"></div>
-<div id="stars"></div>
-
-<!-- Slide 1 -->
-<section class="slide active">
-<div class="glass">
-<h1>For My Sister 💜</h1>
-<p>
-There are people who come into life for moments,
-and then there are people whose presence becomes part of your strength.
-<br><br>
-You have always been one of those people for me.
-Through difficult days, stress, confusion, and silent battles,
-you stayed beside me in ways you probably never realized.
-<br><br>
-Maybe I don’t always express it properly,
-but your support means more to me than words can explain.
-</p>
-<button class="btn" onclick="nextSlide()">Go Ahead ✨</button>
-</div>
-</section>
-
-<!-- Slide 2 -->
-<section class="slide">
-<div class="glass">
-<h2>You Matter 🌸</h2>
-<p>
-You are not just my sister.
-<br><br>
-You are the calmness in my chaos,
-the support in my difficult moments,
-and one of the most valuable blessings in my life.
-<br><br>
-Your kindness, patience, care, and sacrifices
-are things I will always remember.
-<br><br>
-No matter how much life changes,
-you will always remain special to me.
-</p>
-<button class="btn" onclick="nextSlide()">Go Ahead 💖</button>
-</div>
-</section>
-
-<!-- Slide 3 -->
-<section class="slide">
-<div class="glass">
-<h2>Thank You 💫</h2>
-<p>
-Thank you for understanding me even when I stayed silent.
-<br><br>
-Thank you for supporting me during difficult phases.
-<br><br>
-Thank you for believing in me when I doubted myself.
-<br><br>
-Thank you for making life lighter, happier, and warmer just with your presence.
-</p>
-<button class="btn" onclick="nextSlide()">Go Ahead 🦋</button>
-</div>
-</section>
-
-<!-- Slide 4 -->
-<section class="slide">
-<div class="glass">
-<h2>A Special Message 💌</h2>
-<p id="typing"></p>
-<br>
-<p>
-Some people make life beautiful with grand gestures.
-But people like you make life beautiful simply by being there.
-<br><br>
-Your support silently helped me become stronger,
-calmer, and better.
-</p>
-<button class="btn" onclick="nextSlide()">Go Ahead 🌷</button>
-</div>
-</section>
-
-<!-- Slide 5 -->
-<section class="slide">
-<div class="glass">
-<h2>Our Bond 🎵</h2>
-<p>
-Every memory with you carries comfort, happiness, and warmth.
-<br><br>
-Even small moments become special because of your presence.
-<br><br>
-No matter how successful I become in life,
-I will never forget the people who truly stood beside me.
-<br><br>
-And you will always be one of them.
-</p>
-
-<button class="btn musicBtn" onclick="playMusic()">Play Music 🎶</button>
-<br>
-<button class="btn" onclick="nextSlide()">Final Message ✨</button>
-
-<audio id="music" loop>
-<source src="music.mp3" type="audio/mp3">
+<!-- MUSIC -->
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5f0d5f6f8f.mp3?filename=beautiful-piano-113951.mp3" type="audio/mp3">
 </audio>
-</div>
-</section>
 
-<!-- Slide 6 -->
-<section class="slide">
-<div class="glass">
-<h2>Your Presence 🌸</h2>
-<p>
-Some people only stay during good times,
-but you stayed even during the difficult phases of life.
-<br><br>
-Your presence always brought peace,
-comfort, and strength.
-<br><br>
-Even when I was stressed,
-confused,
-or mentally tired,
-you somehow made things feel lighter.
-<br><br>
-That is something truly rare.
-</p>
-<butto
-<section class="slide">
-<div class="glass">
-<h2>Your Presence 🌸</h2>
-<p>
-Some people only stay during good times,
-but you stayed even during the difficult phases of life.
-<br><br>
-Your presence always brought peace,
-comfort, and strength.
-<br><br>
-Even when I was stressed,
-confused,
-or mentally tired,
-you somehow made things feel lighter.
-<br><br>
-That is something truly rare.
-</p>
-<button class="btn" onclick="nextSlide()">Go Ahead ✨</button>
-</div>
-</section>
+<!-- SLIDE 1 -->
+<div class="slide active">
 
-<!-- Slide 7 -->
-<section class="slide">
-<div class="glass">
-<h2>A Beautiful Soul 🦋</h2>
-<p>
-Life becomes beautiful because of people
-who genuinely care from their h
-<br><br>
-Your kindness,
-your patience,
-and your ability to support others
-without expecting anything in return
-is something I truly admire.
-<br><br>
-Never forget how special and valuable you are.
-</p>
-<button class="btn" onclick="nextSlide()">Go Ahead 💖</button>
-</div>
-</section>
+<div class="animation" id="butterflies"></div>
 
-<!-- Slide 8 -->
-<section class="slide">
-<div class="glass">
-<div class="finalText">Thank You Sister 💜</div>
+<div class="content">
+<h1>🦋 My Amazing Sister 🦋</h1>
+
 <p>
-No matter where life takes us,
-how much time passes,
-or how much things changmportant people in my life.
-<br><br>
-Thank you for everyile,
-every moment of support,
-and every time you stayed beside me.
-<br><br>
-This website is small compared to how grateful I truly am,
-but I still wanted to make something special
-for someone who means so much to me.
-<br><br>
-Made with endless love by your brother 🌸💜
+You are one of the greatest blessings in my life 💖<br><br>
+
+Thank you for always standing beside me in my difficult times 🥹🌸<br><br>
+
+You helped me become a better person and a true gentleman ❤️✨
 </p>
+
+<button onclick="nextSlide()">Go Ahead ➜</button>
+
 </div>
-</section>
+</div>
+
+<!-- SLIDE 2 -->
+
+<div class="slide">
+
+<div class="animation" id="roses"></div>
+
+<div class="content">
+
+<h1>🌹 Thank You Sister 🌹</h1>
+
+<p>
+Your love and support always gave me strength ❤️<br><br>
+
+You encouraged me when life became hard 🥹✨<br><br>
+
+I will forever be grateful for everything you did for me 💖🌹
+</p>
+
+<button onclick="nextSlide()">Go Ahead ➜</button>
+
+</div>
+</div>
+
+<!-- SLIDE 3 -->
+
+<div class="slide">
+
+<div class="animation" id="stars"></div>
+
+<div class="content">
+
+<h1>✨ My Guiding Star ✨</h1>
+
+<p>
+Your words always heal my heart 🌟❤️<br><br>
+
+You taught me kindness, respect and patience 💕<br><br>
+
+You are truly one of the most beautiful souls in my life 🥰✨
+</p>
+
+<button onclick="nextSlide()">Go Ahead ➜</button>
+
+</div>
+</div>
+
+<!-- SLIDE 4 -->
+
+<div class="slide">
+
+<div class="animation" id="hearts"></div>
+
+<div class="content">
+
+<h1>💖 Endless Love 💖</h1>
+
+<p>
+No matter where life takes us...<br><br>
+
+You will always remain special to me ❤️✨<br><br>
+
+Thank you for protecting me, supporting me and loving me endlessly 🥹💕
+</p>
+
+<button onclick="nextSlide()">Go Ahead ➜</button>
+
+</div>
+</div>
+
+<!-- SLIDE 5 -->
+
+<div class="slide">
+
+<div class="animation" id="finalMix"></div>
+
+<div class="content">
+
+<h1>🌸 Forever Grateful 🌸</h1>
+
+<p>
+I truly feel lucky to have a sister like you 💖🦋<br><br>
+
+You are my support system, my inspiration and my happiness ❤️✨<br><br>
+
+Love You Forever Big Sister 🥹💕🌹
+</p>
+
+<button onclick="finishSite()">Finish 💫</button>
+
+</div>
+</div>
 
 <script>
-const slides = document.querySelectorAll('.slide');
+
+/* SLIDES */
+
 let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
 
 function nextSlide(){
-slides[currentSlide].classList.remove('active');
-currentSlide++;
-if(currentSlide >= slides.length){
-currentSlide = slides.length - 1;
-}
-slides[currentSlide].classList.add('active');
-}
 
-// Typing Effect
-const text = "I may not always express it... but I truly appreciate everything you do for me.";
-let i = 0;
+    slides[currentSlide].classList.remove("active");
 
-function typeEffect(){
-if(i < text.length){
-document.getElementById('typing').innerHTML += text.charAt(i);
-i++;
-setTimeout(typeEffect,40);
-}
+    currentSlide++;
+
+    if(currentSlide < slides.length){
+        slides[currentSlide].classList.add("active");
+    }
 }
 
-typeEffect();
-
-// Music
-function playMusic(){
-document.getElementById('music').play();
+function finishSite(){
+    alert("💖 Thank You Sister For Everything 💖");
 }
 
-// Stars
-const stars = document.getElementById('stars');
-for(let i=0;i<120;i++){
-const star = document.createElement('div');
-star.classList.add('star');
-star.style.left = Math.random()*100 + 'vw';
-star.style.top = Math.random()*100 + 'vh';
-star.style.animationDelay = Math.random()*5 + 's';
-stars.appendChild(star);
+/* ANIMATION CREATOR */
+
+function createAnimation(containerId, emoji, count){
+
+    const container = document.getElementById(containerId);
+
+    for(let i=0;i<count;i++){
+
+        const item = document.createElement("div");
+
+        item.classList.add("item");
+
+        item.innerHTML = emoji;
+
+        item.style.left = Math.random()*100 + "vw";
+
+        item.style.fontSize = (18 + Math.random()*25) + "px";
+
+        item.style.animationDuration = (5 + Math.random()*7) + "s";
+
+        item.style.animationDelay = Math.random()*5 + "s";
+
+        container.appendChild(item);
+    }
 }
 
-// Flowers
-const flowers = document.getElementById('flowers');
-const flowerIcons = ['🌸','🌹','🌺','💮','🌷'];
+/* DIFFERENT ANIMATIONS */
 
-for(let i=0;i<50;i++){
-const flower = document.createElement('div');
-flower.classList.add('flower');
-flower.innerHTML = flowerIcons[Math.floor(Math.random()*flowerIcons.length)];
-flower.style.left = Math.random()*100 + 'vw';
-flower.style.top = Math.random()*100 + 'vh';
-flower.style.fontSize = (18 + Math.random()*25) + 'px';
-flower.style.animationDuration = (5 + Math.random()*6) + 's';
-flowers.appendChild(flower);
-}
+createAnimation("butterflies","🦋",80);
 
-// Butterflies
-const butterflies = document.getElementById('butterflies');
+createAnimation("roses","🌹",80);
 
-for(let i=0;i<20;i++){
-const butterfly = document.createElement('div');
-butterfly.classList.add('butterfly');
-butterfly.innerHTML = '🦋';
-butterfly.style.top = Math.random()*100 + 'vh';
-butterfly.style.fontSize = (18 + Math.random()*20) + 'px';
-butterfly.style.animationDuration = (10 + Math.random()*10) + 's';
-butterfly.style.animationDelay = Math.random()*10 + 's';
-butterflies.appendChild(butterfly);
-}
+createAnimation("stars","✨",100);
 
-// Touch Flowers
-window.addEventListener('click',function(e){
-const touchFlower = document.createElement('div');
-touchFlower.innerHTML='🌸';
-touchFlower.style.position='absolute';
-touchFlower.style.left=e.pageX+'px';
-touchFlower.style.top=e.pageY+'px';
-touchFlower.style.fontSize='35px';
-touchFlower.style.pointerEvents='none';
-touchFlower.style.animation='float 3s ease-out';
-document.body.appendChild(touchFlower);
+createAnimation("hearts","💖",90);
 
-setTimeout(()=>{
-touchFlower.remove();
-},3000);
-});
+createAnimation("finalMix","🌸",40);
+createAnimation("finalMix","🦋",40);
+createAnimation("finalMix","✨",40);
+createAnimation("finalMix","💖",40);
+
 </script>
 
 </body>
-</html
+</html>
